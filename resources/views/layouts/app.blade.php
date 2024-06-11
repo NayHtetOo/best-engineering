@@ -30,6 +30,101 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('worktype.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                {{-- <span class="menu-title mm">User Registration</span> --}}
+                                <span class="menu-title">Work Type</span>
+                            </a>
+                        </li>
+                        <!-- Land Type -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('landtype.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Land Type</span>
+                            </a>
+                        </li>
+
+                        <!-- Thickness Type -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('thicknesstype.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Thickness Type</span>
+                            </a>
+                        </li>
+
+                         <!-- Ratio Type -->
+                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('ratiotype.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Ratio Type</span>
+                            </a>
+                        </li>
+
+                        <!-- Mixed Type -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('mixedtype.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Mixed Type</span>
+                            </a>
+                        </li>
+
+                        <!-- Brickwork Type -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('brickwork.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Brickwork</span>
+                            </a>
+                        </li>
+
+                        <!-- Concretingwork Type -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('concretingwork.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Concreting Work</span>
+                            </a>
+                        </li>
+
+                        <!-- Site -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('site.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Sites</span>
+                            </a>
+                        </li>
+
+                        <!-- Earthwork Head -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('earthworkhead.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Earthwork Head</span>
+                            </a>
+                        </li>
+
+                        <!-- Brickwork Head -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('brickworkhead.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Brickwork Head</span>
+                            </a>
+                        </li>
+
+                        <!-- Concretingwork Head -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('concretingworkhead.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Concretingwork Head</span>
+                            </a>
+                        </li>
+
+                        <!-- Cementconcretingwork Head -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cementconcretingwork.index') }}">
+                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                <span class="menu-title">Cement Concreting Work Head</span>
+                            </a>
+                        </li>
+
 
                     </ul>
 

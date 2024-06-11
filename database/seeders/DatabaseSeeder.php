@@ -16,8 +16,24 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Merlin',
+            'email' => 'merlin@gmail.com',
+            'password' => bcrypt('123')
+        ]);
+
+        $this->call([
+            WorkTypeSeeder::class,
+            LandTypeSeeder::class,
+            ThicknessTypeSeeder::class,
+            RatioTypeSeeder::class,
+            BrickworkSeeder::class,
+            MixedTypeSeeder::class,
+            ConcretingworkSeeder::class,
+            SiteSeeder::class,
+            EarthworkHeadSeeder::class,
+            BrickworkHeadSeeder::class,
+            ConcretingworkHeadSeeder::class,
+            CementConcretingworkSeeder::class
         ]);
     }
 }
