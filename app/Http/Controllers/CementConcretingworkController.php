@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CementConcretingworkController extends Controller
 {
-    public function cementConretingwork(){
-        $cement_concreteworks = CementConcretingwork::with('site')->get();
-        return view('cement_concretingwork.cement-concretework-index',[
-            'cement_concreteworks' => $cement_concreteworks
+    public function cementConcretingwork(){
+        $cement_concretingworks = CementConcretingwork::with('site')->get();
+        return view('cement_concretingwork.cement-concretingwork-index',[
+            'cement_concretingworks' => $cement_concretingworks
         ]);
     }
 }

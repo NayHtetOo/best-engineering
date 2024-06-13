@@ -4,12 +4,61 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">{{ __('Brick Work Head') }}</div>
+            <div class="text-end">
+                <button class="btn btn-outline-primary px-2 py-1 mb-3">Create Brickwork Head</button>
+            </div>
+            <div style="overflow-x: auto">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr style="background: #e4f7eb;">
+                            <th style="font-weight: bold;background:blue;color:white;text-align: center;">No</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 250px;text-align: left;">Site</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 300px;text-align: left;">Thickness Type</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Ratio Type</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Length</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Width</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Height</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Qty</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Bricks</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Cements</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Sands</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">X-met</th>
 
-                <div class="card-body">
-                    body
-                </div>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Masons</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Workers</th>
+
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align: center;min-width:150px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($brickwork_heads as $data)
+
+                            <tr>
+                                <td class="text-center">{{ $loop->index + 1 }}</td>
+                                <td>{{ $data->site->name }}</td>
+                                <td>{{ $data->thicknessType->name_mm }}</td>
+                                <td class="text-center">{{ $data->ratioType->ratio}}</td>
+
+                                <td class="text-center">{{ $data->length}}</td>
+                                <td class="text-center">{{ $data->width ?? '-'}}</td>
+                                <td class="text-center">{{ $data->height}}</td>
+                                <td class="text-center">{{ $data->qty}}</td>
+
+                                <td class="text-center">{{ $data->bricks}}</td>
+                                <td class="text-center">{{ $data->cements}}</td>
+                                <td class="text-center">{{ $data->sands}}</td>
+                                <td class="text-center">{{ $data->xmet ?? '-'}}</td>
+
+                                <td class="text-center">{{ $data->masons}}</td>
+                                <td class="text-center">{{ $data->workers}}</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
+                                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

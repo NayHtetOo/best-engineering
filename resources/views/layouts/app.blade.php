@@ -30,43 +30,73 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
+                        <!-- Work Type -->
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('worktype.index') }}">
                                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                {{-- <span class="menu-title mm">User Registration</span> --}}
                                 <span class="menu-title">Work Type</span>
                             </a>
+                        </li> --}}
+
+                        <li class="nav-item dropdown">
+                            <a id="typesDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                Types
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="typesDropdown">
+                                <a class="nav-link" href="{{ route('worktype.index') }}">
+                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                    {{-- <span class="menu-title mm">User Registration</span> --}}
+                                    <span class="menu-title">Work Type</span>
+                                </a>
+
+                                <a class="nav-link" href="{{ route('landtype.index') }}">
+                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                    <span class="menu-title">Land Type</span>
+                                </a>
+
+                                <a class="nav-link" href="{{ route('thicknesstype.index') }}">
+                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                    <span class="menu-title">Thickness Type</span>
+                                </a>
+
+                                <a class="nav-link" href="{{ route('ratiotype.index') }}">
+                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                    <span class="menu-title">Ratio Type</span>
+                                </a>
+
+                                <a class="nav-link" href="{{ route('mixedtype.index') }}">
+                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                    <span class="menu-title">Mixed Type</span>
+                                </a>
+
+
+
+
+                            </div>
                         </li>
+
                         <!-- Land Type -->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{ route('landtype.index') }}">
                                 <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                 <span class="menu-title">Land Type</span>
                             </a>
-                        </li>
+                        </li> --}}
 
                         <!-- Thickness Type -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('thicknesstype.index') }}">
-                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                <span class="menu-title">Thickness Type</span>
-                            </a>
+
                         </li>
 
                          <!-- Ratio Type -->
                          <li class="nav-item">
-                            <a class="nav-link" href="{{ route('ratiotype.index') }}">
-                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                <span class="menu-title">Ratio Type</span>
-                            </a>
+
                         </li>
 
                         <!-- Mixed Type -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('mixedtype.index') }}">
-                                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                <span class="menu-title">Mixed Type</span>
-                            </a>
+
                         </li>
 
                         <!-- Brickwork Type -->

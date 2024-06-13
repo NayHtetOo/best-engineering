@@ -36,4 +36,4 @@ Route::get('/earthworkhead/create',[EarthworkHeadController::class,'create'])->n
 
 Route::get('/brickworkhead',[BrickworkHeadController::class,'brickworkHead'])->name('brickworkhead.index');
 Route::get('/concretingworkhead',[ConcretingworkHeadController::class,'concretingworkHead'])->name('concretingworkhead.index');
-Route::get('/cementconcretework',[CementConcretingworkController::class,'cementConretingwork'])->name('cementconcretingwork.index');
+Route::get('/cementconcretingwork',[CementConcretingworkController::class,'cementConcretingwork'])->name('cementconcretingwork.index');
