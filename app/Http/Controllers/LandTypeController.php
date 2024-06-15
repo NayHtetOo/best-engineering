@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class LandTypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+    
     public function landType(){
         $land_types = LandType::all();
         return view('landtype.landtype-index',[

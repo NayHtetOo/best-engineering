@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BrickworkController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
     public function brickwork(){
         $brickworks = Brickwork::with('thicknessType')->get();
         // dd($brickworks->toArray());

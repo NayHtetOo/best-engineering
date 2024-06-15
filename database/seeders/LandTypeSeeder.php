@@ -17,17 +17,17 @@ class LandTypeSeeder extends Seeder
             [
                 'name_mm' => 'ရိုးရိုးမြေ',
                 'name_eng' => 'Ordinary Soil',
-                'rate' => 10.1
+                'rate' => 1.5
             ],
             [
                 'name_mm' => 'အလည်အလတ်တန်းစားမြေ',
                 'name_eng' => 'Medium Soil',
-                'rate' => 10.1
+                'rate' => 2
             ],
             [
                 'name_mm' => 'ခက်ခဲသောမြေ',
                 'name_eng' => 'Hard Soil',
-                'rate' => 10.1
+                'rate' => 3
             ]
         ];
         foreach($land_types as $land_type){

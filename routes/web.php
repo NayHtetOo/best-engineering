@@ -12,11 +12,21 @@ use App\Http\Controllers\RatioTypeController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\ThicknessTypeController;
 use App\Http\Controllers\WorkTypeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('/', function () {
+//     if (Auth::check()) {
+//         return redirect('/home');
+//     } else {
+//         return view('auth.login');
+//     }
+// });
+
 
 Auth::routes();
 
@@ -33,6 +43,9 @@ Route::get('/site',[SiteController::class,'site'])->name('site.index');
 // Earthwork Head
 Route::get('/earthworkhead',[EarthworkHeadController::class,'index'])->name('earthworkhead.index');
 Route::get('/earthworkhead/create',[EarthworkHeadController::class,'create'])->name('earthworkhead.create');
+Route::post('/earthworkhead/store',[EarthworkHeadController::class,'store'])->name('earthworkhead.store');
+Route::get('/earthworkhead/edit/{id}',[EarthworkHeadController::class,'edit'])->name('earthworkhead.edit');
+Route::delete('/earthworkhead/delete/{id}',[EarthworkHeadController::class,'delete'])->name('earthworkhead.delete');
 
 Route::get('/brickworkhead',[BrickworkHeadController::class,'brickworkHead'])->name('brickworkhead.index');
 Route::get('/concretingworkhead',[ConcretingworkHeadController::class,'concretingworkHead'])->name('concretingworkhead.index');

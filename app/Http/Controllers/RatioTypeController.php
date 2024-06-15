@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class RatioTypeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+    
     public function ratioType(){
         $ratio_types = RatioType::all();
         return view('ratiotype.ratiotype-index',[

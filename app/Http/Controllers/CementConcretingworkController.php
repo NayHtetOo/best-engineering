@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CementConcretingworkController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+    
     public function cementConcretingwork(){
         $cement_concretingworks = CementConcretingwork::with('site')->get();
         return view('cement_concretingwork.cement-concretingwork-index',[
