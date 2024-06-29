@@ -5,20 +5,18 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-                <form id="myForm" autocomplete="off" class="form-inline" method="POST" action="{{ route('earthworkhead.store')}}" enctype="multipart/form-data">
-                    @csrf
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card">
+                    <form id="myForm" autocomplete="off" class="form-inline" method="POST" action="{{ route('earthworkhead.store')}}" enctype="multipart/form-data">
+                        @csrf
 
-                    <div class="card-header">
-                        <h4 class="mt-2 text-center text-primary" style="text-transform: uppercase;">{{ __('Earthwork Application Form') }}</h4>
-                    </div>
+                        <div class="card-header">
+                            <h4 class="mt-2 text-center text-primary" style="text-transform: uppercase;">{{ __('Earthwork Application Form') }}</h4>
+                        </div>
 
-                    <div class="card-body">
-
-                        <div class="tabcontent">
+                        <div class="card-body">
 
                             <div class="row">
                                 <div class="col-3">
@@ -74,8 +72,7 @@
 
                             </div>
 
-                            <div class="row">
-
+                            <div class="row my-3">
 
                                 <div class="col">
                                     <fieldset class="form-group">
@@ -119,6 +116,20 @@
                                     </fieldset>
                                 </div>
 
+                                <div class="col">
+                                    <fieldset class="form-group">
+                                        <label><span class="eng">Cost Type</span></label>
+
+                                        <select class="form-control" name="site_id" required>
+                                            <option value="">Choose</option>
+                                            @foreach ($cost_types as $value)
+                                                <option value="{{ $value->id }}" {{ old('cost_type_id', $earthwork_heads?->site_id) == $value->id ? 'selected' : '' }}>
+                                                    {{ $value->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </fieldset>
+                                </div>
+
                             </div>
 
 
@@ -135,63 +146,63 @@
                                 </div>
                             </div>
 
+
+
                         </div>
 
-                    </div>
+                    </form>
 
-                </form>
-
+                </div>
             </div>
         </div>
     </div>
-</div>
-<script>
-    var land_types = @json($land_types);
+    <script>
+        var land_types = @json($land_types);
 
-    // on change event for land type
-    function earthworkEstimate() {
-        // console.log(element);
-        var land_type = document.getElementById('land_type_id').value;
-        var currentLandTypeId = parseInt(land_type);
-        // Find the land type by ID in the land_types array
-        var landType = land_types.find(function(type) {
-            return type.id === currentLandTypeId;
-        });
+        // on change event for land type
+        function earthworkEstimate() {
+            // console.log(element);
+            var land_type = document.getElementById('land_type_id').value;
+            var currentLandTypeId = parseInt(land_type);
+            // Find the land type by ID in the land_types array
+            var landType = land_types.find(function(type) {
+                return type.id === currentLandTypeId;
+            });
 
-        if (landType) {
-            var rate = landType.rate;
-            var volume = document.getElementById("volume").value;
+            if (landType) {
+                var rate = landType.rate;
+                var volume = document.getElementById("volume").value;
 
-            var neededWorkers = volume * (rate / 100);
+                var neededWorkers = volume * (rate / 100);
 
-            document.getElementById('workers').value = neededWorkers;
+                document.getElementById('workers').value = neededWorkers;
 
-            amountCalculate();
+                amountCalculate();
 
-        } else {
-            console.log("Land type not found.");
+            } else {
+                console.log("Land type not found.");
+            }
         }
-    }
 
-    function volumeCalculate(){
-        var length = document.getElementById("length").value;
-        var width = document.getElementById("width").value;
-        var height = document.getElementById("height").value;
-        var qty = document.getElementById("qty").value;
+        function volumeCalculate(){
+            var length = document.getElementById("length").value;
+            var width = document.getElementById("width").value;
+            var height = document.getElementById("height").value;
+            var qty = document.getElementById("qty").value;
 
-        var volume = length * width * height * qty;
+            var volume = length * width * height * qty;
 
-        document.getElementById('volume').value = volume;
-        earthworkEstimate();
+            document.getElementById('volume').value = volume;
+            earthworkEstimate();
 
-    }
+        }
 
-    function amountCalculate(){
-        var workers = document.getElementById("workers").value;
-        var salary_rate = document.getElementById("salary_rate").value;
-        var amount = workers * salary_rate;
-        document.getElementById('amount').value = amount;
-    }
+        function amountCalculate(){
+            var workers = document.getElementById("workers").value;
+            var salary_rate = document.getElementById("salary_rate").value;
+            var amount = workers * salary_rate;
+            document.getElementById('amount').value = amount.toFixed(2);
+        }
 
-</script>
+    </script>
 @endsection

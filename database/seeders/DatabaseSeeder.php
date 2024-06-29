@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             MixedTypeSeeder::class,
             ConcretingworkSeeder::class,
             SiteSeeder::class,
+            CostTypeSeeder::class,
             EarthworkHeadSeeder::class,
             BrickworkHeadSeeder::class,
             ConcretingworkHeadSeeder::class,

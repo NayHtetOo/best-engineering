@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CostType;
 use App\Models\EarthworkHead;
 use App\Models\LandType;
 use App\Models\Site;
@@ -25,8 +26,10 @@ class EarthworkHeadController extends Controller
     public function create(){
         $land_types = LandType::all();
         $sites = Site::all();
+        $cost_types = CostType::all();
         return view('earthwork.earthworkhead-create-form',[
             'land_types' => $land_types,
+            'cost_types' => $cost_types,
             'sites' => $sites
         ]);
     }
@@ -52,20 +55,10 @@ class EarthworkHeadController extends Controller
         ];
 
         // Create earthwork head
-        if($request->updateButton == 0){
-
+        // dd($request->updateButton);
+        if($request->updateButton == null){
+            // dd('create');
             $earthwork_heads = EarthworkHead::create($records);
-
-                // 'site_id' => $request->site_id,
-                // 'land_type_id' => $request->land_type_id,
-                // 'description' => $request->description,
-                // 'length' => $request->length,
-                // 'width' => $request->width,
-                // 'height' => $request->height,
-                // 'qty' => $request->qty,
-                // 'workers' => $request->workers,
-                // 'salary_rate' => $request->salary_rate,
-                // 'amount' => $request->amount
         }else{
             // Update earthwork head
             $earthwork_heads = EarthworkHead::find($request->updateButton);
@@ -82,6 +75,8 @@ class EarthworkHeadController extends Controller
     }
     public function edit($id){
         $land_types = LandType::all();
+        $cost_types = CostType::all();
+
         $sites = Site::all();
         $earthwork_heads = EarthworkHead::find($id);
 
@@ -91,7 +86,8 @@ class EarthworkHeadController extends Controller
             'land_types' => $land_types,
             'sites' => $sites,
             'earthwork_heads' => $earthwork_heads,
-            'editId' => $id
+            'editId' => $id,
+            'cost_types' => $cost_types
         ]);
     }
 

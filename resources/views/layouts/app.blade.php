@@ -75,6 +75,12 @@
                                         <span class="menu-title">Mixed Type</span>
                                     </a>
 
+                                    <!-- Cost Type -->
+                                    <a class="nav-link" href="{{ route('costtype.index') }}">
+                                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                        <span class="menu-title">Cost Type</span>
+                                    </a>
+
                                 </div>
                             </li>
 

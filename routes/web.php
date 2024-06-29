@@ -5,6 +5,7 @@ use App\Http\Controllers\BrickworkHeadController;
 use App\Http\Controllers\CementConcretingworkController;
 use App\Http\Controllers\ConcretingworkController;
 use App\Http\Controllers\ConcretingworkHeadController;
+use App\Http\Controllers\CostTypeController;
 use App\Http\Controllers\EarthworkHeadController;
 use App\Http\Controllers\LandTypeController;
 use App\Http\Controllers\MixedTypeController;
@@ -36,9 +37,17 @@ Route::get('/landtype',[LandTypeController::class,'landType'])->name('landtype.i
 Route::get('/thicknesstype',[ThicknessTypeController::class,'thicknessType'])->name('thicknesstype.index');
 Route::get('/ratiotype',[RatioTypeController::class,'ratioType'])->name('ratiotype.index');
 Route::get('/mixedtype',[MixedTypeController::class,'mixedType'])->name('mixedtype.index');
+Route::get('/costtype',[CostTypeController::class,'costType'])->name('costtype.index');
 Route::get('/brickwork',[BrickworkController::class,'brickwork'])->name('brickwork.index');
 Route::get('/concretingwork',[ConcretingworkController::class,'concretingWork'])->name('concretingwork.index');
-Route::get('/site',[SiteController::class,'site'])->name('site.index');
+
+// site
+Route::get('/site',[SiteController::class,'index'])->name('site.index');
+Route::get('/site/create',[SiteController::class,'create'])->name('site.create');
+Route::post('/site/store',[SiteController::class,'store'])->name('site.store');
+Route::get('/site/edit/{id}',[SiteController::class,'edit'])->name('site.edit');
+Route::delete('/site/delete/{id}',[SiteController::class,'delete'])->name('site.delete');
+Route::get('/site/show/{id}',[SiteController::class,'show'])->name('site.show');
 
 // Earthwork Head
 Route::get('/earthworkhead',[EarthworkHeadController::class,'index'])->name('earthworkhead.index');
@@ -47,6 +56,12 @@ Route::post('/earthworkhead/store',[EarthworkHeadController::class,'store'])->na
 Route::get('/earthworkhead/edit/{id}',[EarthworkHeadController::class,'edit'])->name('earthworkhead.edit');
 Route::delete('/earthworkhead/delete/{id}',[EarthworkHeadController::class,'delete'])->name('earthworkhead.delete');
 
-Route::get('/brickworkhead',[BrickworkHeadController::class,'brickworkHead'])->name('brickworkhead.index');
+// Brickworks Head
+Route::get('/brickworkhead',[BrickworkHeadController::class,'index'])->name('brickworkhead.index');
+Route::get('/brickworkhead/create',[BrickworkHeadController::class,'create'])->name('brickworkhead.create');
+Route::post('/brickworkhead/store',[BrickworkHeadController::class,'store'])->name('brickworkhead.store');
+Route::get('/brickworkhead/edit/{id}',[BrickworkHeadController::class,'edit'])->name('brickworkhead.edit');
+Route::delete('/brickworkhead/delete/{id}',[BrickworkHeadController::class,'delete'])->name('brickworkhead.delete');
+
 Route::get('/concretingworkhead',[ConcretingworkHeadController::class,'concretingworkHead'])->name('concretingworkhead.index');
 Route::get('/cementconcretingwork',[CementConcretingworkController::class,'cementConcretingwork'])->name('cementconcretingwork.index');

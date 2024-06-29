@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('site_id');
             $table->unsignedBigInteger('land_type_id');
+            $table->unsignedBigInteger('cost_type_id');
             $table->string('description')->nullable();
             $table->double('length')->nullable();
             $table->double('width')->nullable();

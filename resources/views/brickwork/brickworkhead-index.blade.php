@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-end">
-                <button class="btn btn-outline-primary px-2 py-1 mb-3">Create Brickwork Head</button>
+                <a href="{{ route('brickworkhead.create')}}" class="btn btn-outline-primary px-2 py-1 mb-3">Create Brickwork Head</a>
             </div>
             <div style="overflow-x: auto">
                 <table class="table table-hover table-bordered">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-end">
-                <a href="{{ route('site.create')}}" class="btn btn-outline-primary px-2 py-1 mb-3">Create Site</a>
+                <a href="" class="btn btn-outline-primary px-2 py-1 mb-3">Create Cost Type</a>
             </div>
             <div style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
@@ -13,31 +13,23 @@
                         <tr style="background: #e4f7eb;">
                             <th style="font-weight: bold;background:blue;color:white;text-align: center;width:80px;">No</th>
                             <th style="font-weight: bold;background:blue;color:white;text-align: left;">Name</th>
-                            <th style="font-weight: bold;background:blue;color:white;text-align: left;">Address</th>
-                            <th style="font-weight: bold;background:blue;color:white;text-align: center;width:120px;">Attachment</th>
                             <th style="font-weight: bold;background:blue;color:white;text-align: center;width:200px;">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($sites as $data)
+                        @foreach ($costtypes as $data)
 
                             <tr>
                                 <td class="text-center">{{ $loop->index + 1 }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->address }}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-primary" style="min-width:50px;">view</button>
-                                </td>
-
-                                <td class="text-center">
-                                    <form action="{{ route('site.delete',$data->id)}}" method="post" style="display: inline;">
+                                    <form action="" method="post" style="display: inline;">
                                         @csrf
-                                        @method('DELETE')
+                                        {{-- @method('DELETE') --}}
                                         <button type="submit" onclick="return confirm('Are you sure to delete?')" class="btn btn-sm btn-outline-danger" style="min-width:55px;">Delete</button>
                                     </form>
 
-                                    <a href="{{ route('site.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width:55px;">Edit</a>
-                                    <a href="{{ route('site.show',$data->id)}}" class="btn btn-sm btn-outline-primary" style="min-width:55px;">Show</a>
+                                    <a href="" class="btn btn-sm btn-outline-secondary" style="min-width:55px;">Edit</a>
                                 </td>
                             </tr>
                         @endforeach
