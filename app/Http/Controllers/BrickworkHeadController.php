@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brickwork;
 use App\Models\BrickworkHead;
 use App\Models\CostType;
 use App\Models\RatioType;
@@ -28,12 +29,16 @@ class BrickworkHeadController extends Controller
         $cost_types = CostType::all();
         $thickness_types = ThicknessType::all();
         $ratio_types = RatioType::all();
+        $brickworks = Brickwork::all();
+
+        // dump($brickworks->toArray());
 
         return view('brickwork.brickworkhead-create-form',[
             'sites' => $sites,
             'thickness_types' => $thickness_types,
             'ratio_types' => $ratio_types,
             'cost_types' => $cost_types,
+            'brickworks' => $brickworks
         ]);
     }
 

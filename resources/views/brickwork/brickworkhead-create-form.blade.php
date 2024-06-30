@@ -19,7 +19,7 @@
                         <div class="card-body">
 
                             <div class="row">
-                                <div class="col-3">
+                                <div class="col-2">
                                     <fieldset class="form-group">
                                         <label><span class="eng">Site</span></label>
 
@@ -33,6 +33,20 @@
                                     </fieldset>
                                 </div>
 
+                                <div class="col-3">
+                                    <fieldset class="form-group">
+                                        <label><span class="eng">Thickness Type</span></label>
+
+                                        <select class="form-control" id="thickness_type" name="thickness_type_id" onchange="brickworkEstimate()" required>
+                                            <option value="">Choose</option>
+                                            @foreach ($thickness_types as $value)
+                                                <option value="{{ $value->id }}" {{ old('thickness_type_id', $brickwork_heads?->thickness_type_id) == $value->id ? 'selected' : '' }}>
+                                                    {{ $value->name_mm }}</option>
+                                            @endforeach
+                                        </select>
+                                    </fieldset>
+                                </div>
+
                                 <div class="col-1">
                                     <fieldset class="form-group">
                                         <label><span class="eng">Length</span></label>
@@ -41,12 +55,12 @@
                                 </div>
 
 
-                                {{-- <div class="col-1">
+                                <div class="col-1" id="widthField">
                                     <fieldset class="form-group">
                                         <label><span class="eng">Width</span></label>
                                         <input type="number" class="form-control mt-1" onchange="volumeCalculate()" id="width"  name="width" value="{{ old('width', $brickwork_heads?->width)}}" required>
                                     </fieldset>
-                                </div> --}}
+                                </div>
 
                                 <div class="col-1">
                                     <fieldset class="form-group">
@@ -65,32 +79,20 @@
                                 <div class="col-2">
                                     <fieldset class="form-group">
                                         <label><span class="eng">Total Volume</span></label>
-                                        <input type="number" class="form-control mt-1" onchange="earthworkEstimate()" id="volume" name="volume" value="{{ old('volume', ($brickwork_heads?->length * $brickwork_heads?->height * $brickwork_heads?->qty))}}" readonly required>
+                                        <input type="number" class="form-control mt-1" onchange="brickworkEstimate()" id="volume" name="volume" value="{{ old('volume', ($brickwork_heads?->length * $brickwork_heads?->height * $brickwork_heads?->qty))}}" readonly required>
                                     </fieldset>
                                 </div>
 
-                                <div class="col-3">
-                                    <fieldset class="form-group">
-                                        <label><span class="eng">Thickness Type</span></label>
 
-                                        <select class="form-control" name="site_id" required>
-                                            <option value="">Choose</option>
-                                            @foreach ($thickness_types as $value)
-                                                <option value="{{ $value->id }}" {{ old('site_id', $brickwork_heads?->thickness_type_id) == $value->id ? 'selected' : '' }}>
-                                                    {{ $value->name_mm }}</option>
-                                            @endforeach
-                                        </select>
-                                    </fieldset>
-                                </div>
 
                                 <div class="col">
                                     <fieldset class="form-group">
                                         <label><span class="eng">Ratio Type</span></label>
 
-                                        <select class="form-control" name="site_id" required>
+                                        <select class="form-control" id="ratio_type_id" name="ratio_type_id" onchange="brickworkEstimate()" required>
                                             <option value="">Choose</option>
                                             @foreach ($ratio_types as $value)
-                                                <option value="{{ $value->id }}" {{ old('site_id', $brickwork_heads?->ratio_type_id) == $value->id ? 'selected' : '' }}>
+                                                <option value="{{ $value->id }}" {{ old('ratio_type_id', $brickwork_heads?->ratio_type_id) == $value->id ? 'selected' : '' }}>
                                                     {{ $value->ratio }}</option>
                                             @endforeach
                                         </select>
@@ -126,7 +128,7 @@
                                             <div class="col">
                                                 <fieldset class="form-group">
                                                     <label><span class="eng">X-met</span></label>
-                                                    <input type="number" class="form-control mt-1" id="xmet" name="xmet" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
+                                                    <input type="number" class="form-control mt-1" id="xmets" name="xmets" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -175,4 +177,88 @@
             </div>
         </div>
     </div>
+    <script>
+        var brickworks = @json($brickworks);
+
+        $(document).ready(function() {
+            console.log("JQuery is Here");
+            $('#thickness_type').change(function() {
+                var thickness_type = $(this).val();
+                if(thickness_type == 1){
+                    $('#widthField').hide(800);
+                    $('#width').val(1);
+                }
+                if(thickness_type == 2){
+                    $('#widthField').show(800);
+                }
+
+            });
+
+        });
+
+    function volumeCalculate(){
+        var length = document.getElementById("length").value;
+        var width = document.getElementById("width").value;
+        var height = document.getElementById("height").value;
+        var qty = document.getElementById("qty").value;
+
+        var volume = length * width * height * qty;
+        document.getElementById('volume').value = volume;
+        brickworkEstimate();
+
+    }
+    function brickworkEstimate(){
+        var ratio_type_id = document.getElementById('ratio_type_id').value;
+        var thickness_type_id = document.getElementById('thickness_type').value;
+
+        // console.log('Ratio Type Id' + ratio_type_id);
+        if(ratio_type_id && thickness_type_id){
+            // alert('ID');
+            var currentRatioTypeId = parseInt(ratio_type_id);
+            var currentThicknessTypeId = parseInt(thickness_type_id);
+
+            // Find the type by ID in the types array
+            var brickwork = brickworks.find(function(type) {
+                return type.ratio_type_id === currentRatioTypeId && type.thickness_type_id === currentThicknessTypeId;
+            });
+            // console.log('Current Brickwork' + brickwork);
+
+            var volume = document.getElementById('volume').value;
+            // console.log('This is Volume' + volume);
+
+            if(volume != 0 && brickwork){
+
+                var ratio = volume / 100;
+
+                var bricks = brickwork.bricks * ratio;
+                var cements = brickwork.cements * ratio;
+                var sands = brickwork.sands * ratio;
+                var xmets = brickwork.xmet * ratio;
+                var masons = brickwork.masons * ratio;
+                var workers = brickwork.workers * ratio;
+
+                appendValue('bricks',bricks.toFixed(2));
+                appendValue('cements',cements.toFixed(2));
+                appendValue('sands',sands.toFixed(2));
+                appendValue('xmets',xmets.toFixed(2));
+                appendValue('masons',masons.toFixed(2));
+                appendValue('workers',workers.toFixed(2));
+            }else{
+                appendValue('bricks','');
+                appendValue('cements','');
+                appendValue('sands','');
+                appendValue('xmets','');
+                appendValue('masons','');
+                appendValue('workers','');
+            }
+
+        }
+
+    }
+    function appendValue(id,value){
+        document.getElementById(id).value = value;
+    }
+
+    </script>
+
 @endsection

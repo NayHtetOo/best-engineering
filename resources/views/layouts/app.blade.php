@@ -12,6 +12,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -40,7 +41,8 @@
                             </li> --}}
 
                             <li class="nav-item dropdown">
-                                <a id="typesDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="typesDropdown" class="nav-link {{ Request::routeIs('worktype.*') || Request::routeIs('landtype.*') ||
+                                Request::routeIs('thicknesstype.*') || Request::routeIs('ratiotype.*') || Request::routeIs('mixedtype.*') || Request::routeIs('costtype.*') ? 'active text-white rounded bg-primary' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     Types
                                 </a>
 
@@ -86,7 +88,7 @@
 
                             <!-- Brickwork Type -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brickwork.index') }}">
+                                <a class="nav-link {{ Request::routeIs('brickwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('brickwork.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Brickwork</span>
                                 </a>
@@ -94,7 +96,7 @@
 
                             <!-- Concretingwork Type -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('concretingwork.index') }}">
+                                <a class="nav-link {{ Request::routeIs('concretingwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('concretingwork.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Concreting Work</span>
                                 </a>
@@ -102,7 +104,7 @@
 
                             <!-- Site -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('site.index') }}">
+                                <a class="nav-link {{ Request::routeIs('site.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('site.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Sites</span>
                                 </a>
@@ -110,7 +112,7 @@
 
                             <!-- Earthwork Head -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('earthworkhead.index') }}">
+                                <a class="nav-link {{ Request::routeIs('earthworkhead.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('earthworkhead.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Earthwork Head</span>
                                 </a>
@@ -118,7 +120,7 @@
 
                             <!-- Brickwork Head -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('brickworkhead.index') }}">
+                                <a class="nav-link {{ Request::routeIs('brickworkhead.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('brickworkhead.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Brickwork Head</span>
                                 </a>
@@ -126,7 +128,7 @@
 
                             <!-- Concretingwork Head -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('concretingworkhead.index') }}">
+                                <a class="nav-link {{ Request::routeIs('concretingworkhead.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('concretingworkhead.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Concretingwork Head</span>
                                 </a>
@@ -134,7 +136,7 @@
 
                             <!-- Cementconcretingwork Head -->
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('cementconcretingwork.index') }}">
+                                <a class="nav-link {{ Request::routeIs('cementconcretingwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('cementconcretingwork.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Cement Concreting Work Head</span>
                                 </a>
