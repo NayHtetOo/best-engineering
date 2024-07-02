@@ -82,7 +82,7 @@ class EarthworkHeadController extends Controller
 
         // dd($earthwork_heads->toArray());
 
-        return view('earthwork.earthworkhead-create-form',[
+        return view('brickwork.brickworkhead-create-form',[
             'land_types' => $land_types,
             'sites' => $sites,
             'earthwork_heads' => $earthwork_heads,

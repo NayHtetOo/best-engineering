@@ -1,5 +1,6 @@
 @php
     $brickwork_heads = $brickwork_heads ?? null;
+    $brickworks = $brickworks ?? null;
     $editId = $editId ?? null;
 @endphp
 @extends('layouts.app')
@@ -128,7 +129,7 @@
                                             <div class="col">
                                                 <fieldset class="form-group">
                                                     <label><span class="eng">X-met</span></label>
-                                                    <input type="number" class="form-control mt-1" id="xmets" name="xmets" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
+                                                    <input type="number" class="form-control mt-1" id="xmet" name="xmet" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -184,11 +185,11 @@
             console.log("JQuery is Here");
             $('#thickness_type').change(function() {
                 var thickness_type = $(this).val();
-                if(thickness_type == 1){
+                if(thickness_type == 1){ // ၄ လက်မ အထူ
                     $('#widthField').hide(800);
                     $('#width').val(1);
                 }
-                if(thickness_type == 2){
+                if(thickness_type == 2){ // ၉ လက်မ အထူ
                     $('#widthField').show(800);
                 }
 
@@ -233,21 +234,21 @@
                 var bricks = brickwork.bricks * ratio;
                 var cements = brickwork.cements * ratio;
                 var sands = brickwork.sands * ratio;
-                var xmets = brickwork.xmet * ratio;
+                var xmet = brickwork.xmet * ratio;
                 var masons = brickwork.masons * ratio;
                 var workers = brickwork.workers * ratio;
 
                 appendValue('bricks',bricks.toFixed(2));
                 appendValue('cements',cements.toFixed(2));
                 appendValue('sands',sands.toFixed(2));
-                appendValue('xmets',xmets.toFixed(2));
+                appendValue('xmet',xmet.toFixed(2));
                 appendValue('masons',masons.toFixed(2));
                 appendValue('workers',workers.toFixed(2));
             }else{
                 appendValue('bricks','');
                 appendValue('cements','');
                 appendValue('sands','');
-                appendValue('xmets','');
+                appendValue('xmet','');
                 appendValue('masons','');
                 appendValue('workers','');
             }

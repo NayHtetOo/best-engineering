@@ -63,5 +63,11 @@ Route::post('/brickworkhead/store',[BrickworkHeadController::class,'store'])->na
 Route::get('/brickworkhead/edit/{id}',[BrickworkHeadController::class,'edit'])->name('brickworkhead.edit');
 Route::delete('/brickworkhead/delete/{id}',[BrickworkHeadController::class,'delete'])->name('brickworkhead.delete');
 
-Route::get('/concretingworkhead',[ConcretingworkHeadController::class,'concretingworkHead'])->name('concretingworkhead.index');
+// Concretingworks Head
+Route::get('/concretingworkhead',[ConcretingworkHeadController::class,'index'])->name('concretingworkhead.index');
+Route::get('/concretingworkhead/create',[ConcretingworkHeadController::class,'create'])->name('concretingworkhead.create');
+Route::post('/concretingworkhead/store',[ConcretingworkHeadController::class,'store'])->name('concretingworkhead.store');
+Route::get('/concretingworkhead/edit/{id}',[ConcretingworkHeadController::class,'edit'])->name('concretingworkhead.edit');
+Route::delete('/concretingworkhead/delete/{id}',[ConcretingworkHeadController::class,'delete'])->name('concretingworkhead.delete');
+
 Route::get('/cementconcretingwork',[CementConcretingworkController::class,'cementConcretingwork'])->name('cementconcretingwork.index');

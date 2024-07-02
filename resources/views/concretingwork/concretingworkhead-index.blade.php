@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-end">
-                <button class="btn btn-outline-primary px-2 py-1 mb-3">Create Concreting Work Head</button>
+                <a href="{{ route('concretingworkhead.create') }}" class="btn btn-outline-primary px-2 py-1 mb-3">Create Concreting Work Head</a>
             </div>
             <div style="overflow-x: auto">
                 <table class="table table-hover table-bordered">
@@ -55,8 +55,12 @@
                                 <td class="text-center">{{ $data->fuel ?? '-'}}</td>
                                 <td class="text-center">{{ $data->machine_drivers ?? '-'}}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
+                                    <a href="{{ route('concretingworkhead.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</a>
+                                    <form action="{{ route('concretingworkhead.delete', $data->id) }}" method="post" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 55px;">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

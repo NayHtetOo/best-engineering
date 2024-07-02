@@ -51,9 +51,19 @@
 
                                 <td class="text-center">{{ $data->masons}}</td>
                                 <td class="text-center">{{ $data->workers}}</td>
-                                <td class="text-center">
+                                {{-- <td class="text-center">
                                     <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
                                     <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
+                                </td> --}}
+                                <td class="text-center">
+                                    <div class="d-inline-flex">
+                                        <a href="{{ route('brickworkhead.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary me-2" style="min-width: 55px;">Edit</a>
+                                        <form action="{{ route('brickworkhead.delete', $data->id) }}" method="post" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 55px;">Delete</button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

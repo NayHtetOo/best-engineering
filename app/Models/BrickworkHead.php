@@ -9,7 +9,7 @@ class BrickworkHead extends Model
 {
     use HasFactory;
 
-    protected $gurarded = [];
+    protected $guarded = [];
 
     public function thicknessType(){
         return $this->belongsTo(ThicknessType::class);
