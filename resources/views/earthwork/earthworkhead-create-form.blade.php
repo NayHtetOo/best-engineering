@@ -120,10 +120,10 @@
                                     <fieldset class="form-group">
                                         <label><span class="eng">Cost Type</span></label>
 
-                                        <select class="form-control" name="site_id" required>
+                                        <select class="form-control" name="cost_type_id" required>
                                             <option value="">Choose</option>
                                             @foreach ($cost_types as $value)
-                                                <option value="{{ $value->id }}" {{ old('cost_type_id', $earthwork_heads?->site_id) == $value->id ? 'selected' : '' }}>
+                                                <option value="{{ $value->id }}" {{ old('cost_type_id', $earthwork_heads?->cost_type_id) == $value->id ? 'selected' : '' }}>
                                                     {{ $value->name }}</option>
                                             @endforeach
                                         </select>

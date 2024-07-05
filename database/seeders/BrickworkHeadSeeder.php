@@ -28,7 +28,16 @@ class BrickworkHeadSeeder extends Seeder
                 'sands' => 0.1,
                 'xmet' => 115,
                 'masons' => 2,
-                'workers' => 3
+                'workers' => 3,
+
+                'brick_rate' => 1,
+                'cement_rate' => 1,
+                'sand_rate' => 1,
+                'xmet_rate' => 1,
+                'mason_rate' => 1,
+                'worker_rate' => 1,
+                'labour_costs' => 1,
+                'material_costs' => 1,
             ],
             // 9" thickness
             [
@@ -43,7 +52,17 @@ class BrickworkHeadSeeder extends Seeder
                 'cements' => 9.24,
                 'sands' => 0.23,
                 'masons' => 4,
-                'workers' => 6
+                'workers' => 6,
+
+                'brick_rate' => 1,
+                'cement_rate' => 1,
+                'sand_rate' => 1,
+                'xmet_rate' => 1,
+                'mason_rate' => 1,
+                'worker_rate' => 1,
+                'labour_costs' => 1,
+                'material_costs' => 1,
+
             ],
             [
                 'site_id' => 1,
@@ -57,7 +76,16 @@ class BrickworkHeadSeeder extends Seeder
                 'cements' => 6.96,
                 'sands' => 0.26,
                 'masons' => 4,
-                'workers' => 6
+                'workers' => 6,
+
+                'brick_rate' => 1,
+                'cement_rate' => 1,
+                'sand_rate' => 1,
+                'xmet_rate' => 1,
+                'mason_rate' => 1,
+                'worker_rate' => 1,
+                'labour_costs' => 1,
+                'material_costs' => 1,
             ],
             [
                 'site_id' => 1,
@@ -71,7 +99,16 @@ class BrickworkHeadSeeder extends Seeder
                 'cements' => 5.63,
                 'sands' => 0.28,
                 'masons' => 4,
-                'workers' => 6
+                'workers' => 6,
+
+                'brick_rate' => 1,
+                'cement_rate' => 1,
+                'sand_rate' => 1,
+                'xmet_rate' => 1,
+                'mason_rate' => 1,
+                'worker_rate' => 1,
+                'labour_costs' => 1,
+                'material_costs' => 1,
             ]
         ];
         foreach($brickwork_heads as $brickwork_head){

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-end">
-                <button class="btn btn-outline-primary px-2 py-1 mb-3">Create Work Type</button>
+                <a href="{{ route('ratiotype.create')}}" class="btn btn-outline-primary px-2 py-1 mb-3">Create Work Type</a>
             </div>
             <div style="overflow-x: auto">
 
@@ -26,8 +26,13 @@
                                 <td>{{ $data->ratio }}</td>
                                 <td>{{ $data->name }}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
+                                    <a href="{{ route('ratiotype.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</a>
+                                    {{-- <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button> --}}
+                                    <form action="{{ route('ratiotype.delete',$data->id)}}" method="post" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" onclick="return confirm('Are you sure to delete?')" class="btn btn-sm btn-outline-danger" style="min-width:55px;">Delete</button>
+                                    </form>
 
                                 </td>
                             </tr>

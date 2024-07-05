@@ -20,12 +20,21 @@
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Height</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Qty</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Bricks</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Brick Rate</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Cements</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Cement Rate</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Sands</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Sand Rate</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">X-met</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">X-met Rate</th>
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Masons</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Mason Rate</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Workers</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Worker Rate</th>
+
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Material Costs</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Labour Costs</th>
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align: center;min-width:150px;">Action</th>
                         </tr>
@@ -45,16 +54,26 @@
                                 <td class="text-center">{{ $data->qty}}</td>
 
                                 <td class="text-center">{{ $data->bricks}}</td>
+                                <td class="text-center">{{ $data->brick_rate}}</td>
+
                                 <td class="text-center">{{ $data->cements}}</td>
+                                <td class="text-center">{{ $data->cement_rate}}</td>
+
                                 <td class="text-center">{{ $data->sands}}</td>
+                                <td class="text-center">{{ $data->sand_rate}}</td>
+
                                 <td class="text-center">{{ $data->xmet ?? '-'}}</td>
+                                <td class="text-center">{{ $data->xmet_rate ?? '-'}}</td>
 
                                 <td class="text-center">{{ $data->masons}}</td>
+                                <td class="text-center">{{ $data->mason_rate}}</td>
+
                                 <td class="text-center">{{ $data->workers}}</td>
-                                {{-- <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
-                                    <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
-                                </td> --}}
+                                <td class="text-center">{{ $data->worker_rate}}</td>
+
+                                <td class="text-center">{{ $data->material_costs}}</td>
+                                <td class="text-center">{{ $data->labour_costs}}</td>
+
                                 <td class="text-center">
                                     <div class="d-inline-flex">
                                         <a href="{{ route('brickworkhead.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary me-2" style="min-width: 55px;">Edit</a>

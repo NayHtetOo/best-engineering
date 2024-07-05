@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder
             EarthworkHeadSeeder::class,
             BrickworkHeadSeeder::class,
             ConcretingworkHeadSeeder::class,
-            CementConcretingworkSeeder::class
         ]);
     }
 }

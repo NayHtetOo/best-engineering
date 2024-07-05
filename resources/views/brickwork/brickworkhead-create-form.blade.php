@@ -79,8 +79,8 @@
 
                                 <div class="col-2">
                                     <fieldset class="form-group">
-                                        <label><span class="eng">Total Volume</span></label>
-                                        <input type="number" class="form-control mt-1" onchange="brickworkEstimate()" id="volume" name="volume" value="{{ old('volume', ($brickwork_heads?->length * $brickwork_heads?->height * $brickwork_heads?->qty))}}" readonly required>
+                                        <label><span class="eng">Total Volume(Sq-ft)</span></label>
+                                        <input type="number" class="form-control mt-1 text-end" onchange="brickworkEstimate()" id="volume" name="volume" value="{{ old('volume', ($brickwork_heads?->length * $brickwork_heads?->height * $brickwork_heads?->qty))}}" readonly required>
                                     </fieldset>
                                 </div>
 
@@ -100,66 +100,147 @@
                                     </fieldset>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="row">
-                                            <div class="px-2 py-2">Material Costs</div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Bricks</span></label>
-                                                    <input type="number" class="form-control mt-1" id="bricks" name="bricks" value="{{ old('bricks', $brickwork_heads?->bricks)}}" readonly required>
-                                                </fieldset>
-                                            </div>
+                                <div class="row mt-3 px-4">
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Cements</span></label>
-                                                    <input type="number" class="form-control mt-1" id="cements" name="cements" value="{{ old('cements', $brickwork_heads?->cements)}}" readonly required>
-                                                </fieldset>
-                                            </div>
-
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Sands</span></label>
-                                                    <input type="number" class="form-control mt-1" id="sands" name="sands" value="{{ old('sands', $brickwork_heads?->sands)}}" readonly required>
-                                                </fieldset>
-                                            </div>
-
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">X-met</span></label>
-                                                    <input type="number" class="form-control mt-1" id="xmet" name="xmet" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
-                                                </fieldset>
-                                            </div>
+                                    <div class="col-8 card">
+                                        <div class="card-header">
+                                            Material Costs
                                         </div>
+                                        <div class="card-body">
 
+                                            <div class="row">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Bricks</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="bricks" name="bricks" value="{{ old('bricks', $brickwork_heads?->bricks)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Brick Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="brick_rate" onchange="materialCostCalculate()" name="brick_rate" value="{{ old('brick_rate', $brickwork_heads?->brick_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Cements</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="cements" name="cements" value="{{ old('cements', $brickwork_heads?->cements)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Cement Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="cement_rate" onchange="materialCostCalculate()" name="cement_rate" value="{{ old('cement_rate', $brickwork_heads?->cement_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                            <div class="row py-3">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Sands</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="sands" onchange="materialCostCalculate()" name="sands" value="{{ old('sands', $brickwork_heads?->sands)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Sand Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="sand_rate" name="sand_rate" onchange="materialCostCalculate()" value="{{ old('sand_rate', $brickwork_heads?->sand_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">X-met</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="xmet" name="xmet" value="{{ old('xmet', $brickwork_heads?->xmet)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">X-met Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="xmet_rate" name="xmet_rate" onchange="materialCostCalculate()" value="{{ old('xmet_rate', $brickwork_heads?->xmet_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     </div>
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="px-2 py-2">Labour Costs</div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Masons</span></label>
-                                                    <input type="number" class="form-control mt-1" id="masons" name="masons" value="{{ old('masons', $brickwork_heads?->masons)}}" readonly required>
-                                                </fieldset>
-                                            </div>
-
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Workers</span></label>
-                                                    <input type="number" class="form-control mt-1" id="workers" name="workers" value="{{ old('workers', $brickwork_heads?->workers)}}" readonly required>
-                                                </fieldset>
-                                            </div>
+                                    <div class="col-4 card">
+                                        <div class="card-header">
+                                            Labour Costs
                                         </div>
+                                        <div class="card-body">
+                                            <div class="row">
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Masons</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="masons" name="masons" value="{{ old('masons', $brickwork_heads?->masons)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Mason Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="mason_rate" name="mason_rate" onchange="labourCostCalculate()" value="{{ old('mason_rate', $brickwork_heads?->mason_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                            <div class="row py-3">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Workers</span></label>
+                                                        <input type="number" class="form-control mt-1 text-end" id="workers" name="workers" value="{{ old('workers', $brickwork_heads?->workers)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Worker Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="worker_rate" name="worker_rate" onchange="labourCostCalculate()" value="{{ old('worker_rate', $brickwork_heads?->worker_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
                                     </div>
                                 </div>
 
-                                <div class="row mt-4">
+                                <div class="row mt-3">
+                                    <div class="col-8"></div>
+
+                                    <div class="col-2 text-end">
+                                        <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Material Costs</label>
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="number" class="form-control py-1 text-end" id="material_costs" name="material_costs" value="{{ old('material_costs', $brickwork_heads?->material_costs)}}" readonly required>
+                                    </div>
+                                </div>
+
+                                <div class="row py-2">
+                                    <div class="col-8"></div>
+
+                                    <div class="col-2 text-end">
+                                        <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Labour Costs</label>
+                                    </div>
+                                    <div class="col-2">
+                                        <input type="number" class="form-control py-1 text-end" id="labour_costs" name="labour_costs" value="{{ old('labour_costs', $brickwork_heads?->labour_costs)}}" readonly required>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-1">
                                     <div class="d-flex justify-content-end mb-2">
-                                        <a id="cancel" href="{{ url()->previous() }}" class="btn btn-outline-secondary button" style="min-width: 80px;margin-right: 10px;">Cancel</a>
-                                        <button class="bg-success btn btn-success button" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
+                                        <a id="cancel" href="{{ url()->previous() }}" class="btn btn-sm btn-outline-secondary px-4 py-2" style="min-width: 80px;margin-right: 7px;">Cancel</a>
+                                        <button class="btn btn-sm btn-outline-success px-4 py-2" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
                                             @isset($brickwork_heads)
                                                 Update
                                             @else
@@ -206,6 +287,8 @@
         var volume = length * width * height * qty;
         document.getElementById('volume').value = volume;
         brickworkEstimate();
+        materialCostCalculate();
+        labourCostCalculate();
 
     }
     function brickworkEstimate(){
@@ -244,6 +327,9 @@
                 appendValue('xmet',xmet.toFixed(2));
                 appendValue('masons',masons.toFixed(2));
                 appendValue('workers',workers.toFixed(2));
+
+                materialCostCalculate();
+                labourCostCalculate();
             }else{
                 appendValue('bricks','');
                 appendValue('cements','');
@@ -258,6 +344,36 @@
     }
     function appendValue(id,value){
         document.getElementById(id).value = value;
+    }
+
+    function materialCostCalculate(){
+        var bricks = document.getElementById("bricks").value;
+        var brick_rate = document.getElementById("brick_rate").value;
+
+        var cements = document.getElementById("cements").value;
+        var cement_rate = document.getElementById("cement_rate").value;
+
+        var sands = document.getElementById("sands").value;
+        var sand_rate = document.getElementById("sand_rate").value;
+
+        var xmet = document.getElementById("xmet").value;
+        var xmet_rate = document.getElementById("xmet_rate").value;
+
+        var material_costs = (bricks * brick_rate) + (cements * cement_rate) + (sands * sand_rate) + (xmet * xmet_rate);
+
+        document.getElementById("material_costs").value = material_costs.toFixed(2);
+    }
+
+    function labourCostCalculate(){
+        var masons = document.getElementById("masons").value;
+        var mason_rate = document.getElementById("mason_rate").value;
+
+        var workers = document.getElementById("workers").value;
+        var worker_rate = document.getElementById("worker_rate").value;
+
+        var labour_costs = (masons * mason_rate) + (workers * worker_rate);
+
+        document.getElementById("labour_costs").value = labour_costs.toFixed(2);
     }
 
     </script>

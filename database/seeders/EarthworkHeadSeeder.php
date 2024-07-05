@@ -16,6 +16,7 @@ class EarthworkHeadSeeder extends Seeder
         DB::table('earthwork_heads')->insert([
             'site_id' => 1,
             'land_type_id' => 1,
+            'cost_type_id' => 1,
             'description' => '၄ပေပတ်လည်မြေကြီးတူးလုပ်ငန်း',
             'length' => 10.0,
             'width' => 10.0,

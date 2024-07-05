@@ -198,7 +198,7 @@
                 }
                 if(type == 2){ // စက်ဖျော်
                     $('#fuelField').show(700);
-                    $('#machineDriverField').hide(700);
+                    $('#machineDriverField').show(700);
                 }
 
             });

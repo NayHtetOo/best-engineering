@@ -35,7 +35,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/worktype',[WorkTypeController::class,'workType'])->name('worktype.index');
 Route::get('/landtype',[LandTypeController::class,'landType'])->name('landtype.index');
 Route::get('/thicknesstype',[ThicknessTypeController::class,'thicknessType'])->name('thicknesstype.index');
-Route::get('/ratiotype',[RatioTypeController::class,'ratioType'])->name('ratiotype.index');
+// Ratio Type
+Route::get('/ratiotype',[RatioTypeController::class,'index'])->name('ratiotype.index');
+Route::get('/ratiotype/create',[RatioTypeController::class,'create'])->name('ratiotype.create');
+Route::post('/ratiotype/store',[RatioTypeController::class,'store'])->name('ratiotype.store');
+Route::get('/ratiotype/edit/{id}',[RatioTypeController::class,'edit'])->name('ratiotype.edit');
+Route::delete('/ratiotype/delete/{id}',[RatioTypeController::class,'delete'])->name('ratiotype.delete');
+
 Route::get('/mixedtype',[MixedTypeController::class,'mixedType'])->name('mixedtype.index');
 Route::get('/costtype',[CostTypeController::class,'costType'])->name('costtype.index');
 Route::get('/brickwork',[BrickworkController::class,'brickwork'])->name('brickwork.index');
@@ -69,5 +75,3 @@ Route::get('/concretingworkhead/create',[ConcretingworkHeadController::class,'cr
 Route::post('/concretingworkhead/store',[ConcretingworkHeadController::class,'store'])->name('concretingworkhead.store');
 Route::get('/concretingworkhead/edit/{id}',[ConcretingworkHeadController::class,'edit'])->name('concretingworkhead.edit');
 Route::delete('/concretingworkhead/delete/{id}',[ConcretingworkHeadController::class,'delete'])->name('concretingworkhead.delete');
-
-Route::get('/cementconcretingwork',[CementConcretingworkController::class,'cementConcretingwork'])->name('cementconcretingwork.index');

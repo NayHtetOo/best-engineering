@@ -58,11 +58,19 @@ class BrickworkHeadController extends Controller
             'height' => $request->height,
             'qty' => $request->qty,
             'bricks' => $request->bricks,
+            'brick_rate' => $request->brick_rate,
             'cements' => $request->cements,
+            'cement_rate' => $request->cement_rate,
             'sands' => $request->sands,
+            'sand_rate' => $request->sand_rate,
             'xmet' => $request->xmet,
+            'xmet_rate' => $request->xmet_rate,
             'masons' => $request->masons,
-            'workers' => $request->workers
+            'mason_rate' => $request->mason_rate,
+            'workers' => $request->workers,
+            'worker_rate' => $request->worker_rate,
+            'labour_costs' => $request->labour_costs,
+            'material_costs' => $request->material_costs
         ];
 
         if($request->updateButton == null){

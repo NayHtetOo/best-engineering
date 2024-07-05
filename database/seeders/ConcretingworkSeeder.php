@@ -60,6 +60,29 @@ class ConcretingworkSeeder extends Seeder
                 'masons' => 1,
                 'workers' => 6,
                 'machine_drivers' => 0.5,
+            ],
+
+            // 1:1-1/2 : 3 Hand
+            [
+                'ratio_type_id' => 6, // 1:1-1/2 : 3
+                'mixed_type_id' => 1, // Hand
+                'cements' => 24.91,
+                'aggregates' => 0.92,
+                'sands' => 0.46,
+                'masons' => 1,
+                'workers' => 10,
+            ],
+            // 1:1-1/2 : 3 Machine
+            [
+                'ratio_type_id' => 6, // 1:1-1/2 : 3
+                'mixed_type_id' => 2, // Machine
+                'cements' => 24.91,
+                'aggregates' => 0.92,
+                'sands' => 0.46,
+                'fuel' => 2,
+                'masons' => 1,
+                'workers' => 8,
+                'machine_drivers' => 0.5,
             ]
         ];
         foreach($concreting_works as $concreting_work){

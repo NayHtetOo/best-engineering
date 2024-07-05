@@ -44,6 +44,7 @@ class EarthworkHeadController extends Controller
         $records = [
             'site_id' => $request->site_id,
             'land_type_id' => $request->land_type_id,
+            'cost_type_id' => $request->cost_type_id,
             'description' => $request->description,
             'length' => $request->length,
             'width' => $request->width,
@@ -82,7 +83,7 @@ class EarthworkHeadController extends Controller
 
         // dd($earthwork_heads->toArray());
 
-        return view('brickwork.brickworkhead-create-form',[
+        return view('earthwork.earthworkhead-create-form',[
             'land_types' => $land_types,
             'sites' => $sites,
             'earthwork_heads' => $earthwork_heads,

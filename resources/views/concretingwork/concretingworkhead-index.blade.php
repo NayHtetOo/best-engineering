@@ -22,13 +22,29 @@
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Qty</th>
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Cements</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Cement Rate</th>
+
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Aggregates</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Aggregate Rate</th>
+
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Sands</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Sand Rate</th>
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Masons</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Mason Rate</th>
+
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Workers</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Worker Rate</th>
+
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Fuels</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Fuel Rate</th>
+
                             <th style="font-weight: bold;background:blue;color:white;min-width: 130px;text-align:center;">Machine Drivers</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Machine Driver Rate</th>
+
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 130px;text-align:center;">Material Costs</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 130px;text-align:center;">Labour Costs</th>
+
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align: center;min-width:150px;">Action</th>
                         </tr>
@@ -47,13 +63,29 @@
                                 <td class="text-center">{{ $data->height}}</td>
                                 <td class="text-center">{{ $data->qty}}</td>
                                 <td class="text-center">{{ $data->cements}}</td>
+                                <td class="text-center">{{ $data->cement_rate}}</td>
+
                                 <td class="text-center">{{ $data->aggregates}}</td>
+                                <td class="text-center">{{ $data->aggregate_rate}}</td>
+
                                 <td class="text-center">{{ $data->sands}}</td>
+                                <td class="text-center">{{ $data->sand_rate}}</td>
 
                                 <td class="text-center">{{ $data->masons}}</td>
+                                <td class="text-center">{{ $data->mason_rate}}</td>
+
                                 <td class="text-center">{{ $data->workers}}</td>
+                                <td class="text-center">{{ $data->worker_rate}}</td>
+
                                 <td class="text-center">{{ $data->fuel ?? '-'}}</td>
+                                <td class="text-center">{{ $data->fuel_rate ?? '-'}}</td>
+
                                 <td class="text-center">{{ $data->machine_drivers ?? '-'}}</td>
+                                <td class="text-center">{{ $data->machine_driver_rate ?? '-'}}</td>
+
+                                <td class="text-center">{{ $data->material_costs ?? '-'}}</td>
+                                <td class="text-center">{{ $data->labour_costs ?? '-'}}</td>
+
                                 <td class="text-center">
                                     <a href="{{ route('concretingworkhead.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</a>
                                     <form action="{{ route('concretingworkhead.delete', $data->id) }}" method="post" style="display: inline;">

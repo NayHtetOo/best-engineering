@@ -86,20 +86,27 @@
                                 </div>
                             </li>
 
-                            <!-- Brickwork Type -->
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('brickwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('brickwork.index') }}">
-                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                    <span class="menu-title">Brickwork</span>
+                            <li class="nav-item dropdown">
+                                <a id="motherboardDropdown" class="nav-link {{ Request::routeIs('brickwork.*') || Request::routeIs('concretingwork.*') ? 'active text-white rounded bg-primary' : '' }} dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    MotherBoard
                                 </a>
-                            </li>
 
-                            <!-- Concretingwork Type -->
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('concretingwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('concretingwork.index') }}">
-                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                    <span class="menu-title">Concreting Work</span>
-                                </a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="motherboardDropdown">
+
+                                    <!-- Brickwork Type -->
+                                    <a class="nav-link {{ Request::routeIs('brickwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('brickwork.index') }}">
+                                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                        <span class="menu-title">Brickwork</span>
+                                    </a>
+
+                                    <!-- Concretingwork Type -->
+                                    <a class="nav-link {{ Request::routeIs('concretingwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('concretingwork.index') }}">
+                                        <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                                        <span class="menu-title">Concreting Work</span>
+                                    </a>
+
+
+                                </div>
                             </li>
 
                             <!-- Site -->
@@ -135,13 +142,6 @@
                             </li>
 
                             <!-- Cementconcretingwork Head -->
-                            <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('cementconcretingwork.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('cementconcretingwork.index') }}">
-                                    <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
-                                    <span class="menu-title">Cement Concreting Work Head</span>
-                                </a>
-                            </li>
-
                         @endif
 
                     </ul>
