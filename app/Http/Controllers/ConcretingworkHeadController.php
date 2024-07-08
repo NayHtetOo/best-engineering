@@ -53,13 +53,23 @@ class ConcretingworkHeadController extends Controller
             'height' => $request->height,
             'qty' => $request->qty,
             'cements' => $request->cements,
+            'cement_rate' => $request->cement_rate,
             'aggregates' => $request->aggregates,
+            'aggregate_rate' => $request->aggregate_rate,
             'sands' => $request->sands,
+            'sand_rate' => $request->sand_rate,
             'fuel' => $request->mixed_type_id == 2 ? $request->fuel : null,
+            'fuel_rate' => $request->mixed_type_id == 2 ? $request->fuel_rate : null,
 
             'masons' => $request->masons,
+            'mason_rate' => $request->mason_rate,
             'workers' => $request->workers,
-            'machine_drivers' => $request->mixed_type_id == 2 ? $request->machine_drivers : null
+            'worker_rate' => $request->worker_rate,
+            'machine_drivers' => $request->mixed_type_id == 2 ? $request->machine_drivers : null,
+            'machine_driver_rate' => $request->mixed_type_id == 2 ? $request->machine_driver_rate : null,
+            'material_costs' => $request->material_costs,
+            'labour_costs' => $request->labour_costs
+
         ];
 
 

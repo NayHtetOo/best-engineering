@@ -13,8 +13,8 @@
                     <form id="myForm" autocomplete="off" class="form-inline" method="POST" action="{{ route('concretingworkhead.store')}}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="card-header">
-                            <h4 class="mt-2 text-center text-primary" style="text-transform: uppercase;">{{ __('Concretingwork Head Application Form') }}</h4>
+                        <div class="card-header" style="background:blue;">
+                            <h4 class="mt-2 text-center text-white" style="text-transform: uppercase;">{{ __('Concretingwork Head Application Form') }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -98,75 +98,161 @@
                                     </fieldset>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="row">
-                                            <div class="px-2 py-2">Material Costs</div>
+                                <div class="row mt-3 px-4">
+                                    <!-- Labour Costs -->
+                                    <div class="col-4 card">
+                                        <div class="card-header text-primary">Labour Costs</div>
+                                        <div class="card-body">
+                                            <div class="row">
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Cements</span></label>
-                                                    <input type="number" class="form-control mt-1" id="cements" name="cements" value="{{ old('cements', $concretingwork_heads?->cements)}}" readonly required>
-                                                </fieldset>
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Masons</span></label>
+                                                        <input type="number" class="form-control mt-1" id="masons" name="masons" value="{{ old('masons', $concretingwork_heads?->masons)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Mason Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="mason_rate" name="mason_rate" onchange="labourCostCalculate()" value="{{ old('mason_rate', $concretingwork_heads?->mason_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Workers</span></label>
+                                                        <input type="number" class="form-control mt-1" id="workers" name="workers" value="{{ old('workers', $concretingwork_heads?->workers)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Worker Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="worker_rate" name="worker_rate" onchange="labourCostCalculate()" value="{{ old('worker_rate', $concretingwork_heads?->worker_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Aggregates</span></label>
-                                                    <input type="number" class="form-control mt-1" id="aggregates" name="aggregates" value="{{ old('aggregates', $concretingwork_heads?->aggregates)}}" readonly required>
-                                                </fieldset>
-                                            </div>
+                                            <div class="row">
+                                                <div class="col" id="machineDriverField">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Machine Drivers</span></label>
+                                                        <input type="number" class="form-control mt-1" id="machine_drivers" name="machine_drivers" value="{{ old('machine_drivers', $concretingwork_heads?->machine_drivers)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Sands</span></label>
-                                                    <input type="number" class="form-control mt-1" id="sands" name="sands" value="{{ old('sands', $concretingwork_heads?->sands)}}" readonly required>
-                                                </fieldset>
+                                                <div class="col" id="machineDriverRateField">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Machine Driver Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="machine_driver_rate" name="machine_driver_rate" onchange="labourCostCalculate()" value="{{ old('machine_driver_rate', $concretingwork_heads?->machine_driver_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
                                             </div>
-
-                                            <div class="col" id="fuelField">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Fuel</span></label>
-                                                    <input type="number" class="form-control mt-1" id="fuel" name="fuel" value="{{ old('fuel', $concretingwork_heads?->fuel)}}" readonly required>
-                                                </fieldset>
-                                            </div>
-
 
                                         </div>
-
                                     </div>
-                                    <div class="col-4">
-                                        <div class="row">
-                                            <div class="px-2 py-2">Labour Costs</div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Masons</span></label>
-                                                    <input type="number" class="form-control mt-1" id="masons" name="masons" value="{{ old('masons', $concretingwork_heads?->masons)}}" readonly required>
-                                                </fieldset>
+                                    <!-- Material Costs -->
+                                    <div class="col-8 card">
+                                        <div class="card-header text-primary">Material Costs</div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Cements</span></label>
+                                                        <input type="number" class="form-control mt-1" id="cements" name="cements" value="{{ old('cements', $concretingwork_heads?->cements)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Cement Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="cement_rate" name="cement_rate" onchange="materialCostCalculate()" value="{{ old('cement_rate', $concretingwork_heads?->cement_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Aggregates</span></label>
+                                                        <input type="number" class="form-control mt-1" id="aggregates" name="aggregates" value="{{ old('aggregates', $concretingwork_heads?->aggregates)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Aggregate Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="aggregate_rate" name="aggregate_rate" onchange="materialCostCalculate()" value="{{ old('aggregate_rate', $concretingwork_heads?->aggregate_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Sands</span></label>
+                                                        <input type="number" class="form-control mt-1" id="sands" name="sands" value="{{ old('sands', $concretingwork_heads?->sands)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Sand Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="sand_rate" name="sand_rate" onchange="materialCostCalculate()" value="{{ old('sand_rate', $concretingwork_heads?->sand_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col" id="fuelField">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Fuel</span></label>
+                                                        <input type="number" class="form-control mt-1" id="fuel" name="fuel" value="{{ old('fuel', $concretingwork_heads?->fuel)}}" readonly required>
+                                                    </fieldset>
+                                                </div>
+
+                                                <div class="col" id="fuelRateField">
+                                                    <fieldset class="form-group">
+                                                        <label><span class="eng">Fuel Rate</span></label>
+                                                        <input type="number" class="form-control mt-1" id="fuel_rate" name="fuel_rate" onchange="materialCostCalculate()" value="{{ old('fuel_rate', $concretingwork_heads?->fuel_rate)}}" required>
+                                                    </fieldset>
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Workers</span></label>
-                                                    <input type="number" class="form-control mt-1" id="workers" name="workers" value="{{ old('workers', $concretingwork_heads?->workers)}}" readonly required>
-                                                </fieldset>
+                                            <div class="row mt-3 mx-1">
+                                                <div class="col-6"></div>
+
+                                                <div class="col-2 text-end">
+                                                    <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Material Costs</label>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="number" class="form-control py-1 text-end" id="material_costs" name="material_costs" value="{{ old('material_costs', $concretingwork_heads?->material_costs)}}" readonly required>
+                                                </div>
+                                                <div class="col-1 bg-primary text-white py-1">MMK</div>
                                             </div>
 
-                                            <div class="col" id="machineDriverField">
-                                                <fieldset class="form-group">
-                                                    <label><span class="eng">Machine Drivers</span></label>
-                                                    <input type="number" class="form-control mt-1" id="machine_drivers" name="machine_drivers" value="{{ old('machine_drivers', $concretingwork_heads?->machine_drivers)}}" readonly required>
-                                                </fieldset>
+                                            <div class="row py-2 mx-1">
+                                                <div class="col-6"></div>
+
+                                                <div class="col-2 text-end">
+                                                    <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Labour Costs</label>
+                                                </div>
+                                                <div class="col-3">
+                                                    <input type="number" class="form-control py-1 text-end" id="labour_costs" name="labour_costs" value="{{ old('labour_costs', $concretingwork_heads?->labour_costs)}}" readonly required>
+                                                </div>
+                                                <div class="col-1 bg-primary text-white py-1">MMK</div>
+
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row mt-4">
                                     <div class="d-flex justify-content-end mb-2">
-                                        <a id="cancel" href="{{ url()->previous() }}" class="btn btn-outline-secondary button" style="min-width: 80px;margin-right: 10px;">Cancel</a>
-                                        <button class="bg-success btn btn-success button" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
+                                        <a id="cancel" href="{{ url()->previous() }}" class="btn btn-outline-secondary" style="min-width: 80px;margin-right: 10px;">Cancel</a>
+                                        <button class="btn btn-outline-success" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
                                             @isset($concretingwork_heads)
                                                 Update
                                             @else
@@ -194,16 +280,28 @@
                 var type = $(this).val();
                 if(type == 1){ // လက်ဖျော်
                     $('#fuelField').hide(700);
+                    $('#fuelRateField').hide(700);
                     $('#machineDriverField').hide(700);
+                    $('#machineDriverRateField').hide(700);
+                    appendValue('fuel_rate',0);
+                    appendValue('machine_driver_rate',0);
+
                 }
                 if(type == 2){ // စက်ဖျော်
                     $('#fuelField').show(700);
+                    $('#fuelRateField').show(700);
                     $('#machineDriverField').show(700);
+                    $('#machineDriverRateField').show(700);
+
                 }
 
             });
 
         });
+
+        function appendValue(id,value){
+            document.getElementById(id).value = value;
+        }
 
         function volumeCalculate(){
             var length = document.getElementById("length").value;
@@ -214,6 +312,8 @@
             var volume = length * width * height * qty;
             document.getElementById('volume').value = volume;
             concretingworkEstimate();
+            materialCostCalculate();
+            labourCostCalculate();
 
         }
         function concretingworkEstimate(){
@@ -260,6 +360,9 @@
                     appendValue('masons',masons.toFixed(2));
                     appendValue('workers',workers.toFixed(2));
 
+                    materialCostCalculate();
+                    labourCostCalculate();
+
                 }else{
                     appendValue('cements','');
                     appendValue('aggregates','');
@@ -278,6 +381,40 @@
         function appendValue(id,value){
             document.getElementById(id).value = value;
         }
+
+        function materialCostCalculate(){
+        var fuel = document.getElementById("fuel").value;
+        var fuel_rate = document.getElementById("fuel_rate").value;
+
+        var cements = document.getElementById("cements").value;
+        var cement_rate = document.getElementById("cement_rate").value;
+
+        var sands = document.getElementById("sands").value;
+        var sand_rate = document.getElementById("sand_rate").value;
+
+        var aggregates = document.getElementById("aggregates").value;
+        var aggregate_rate = document.getElementById("aggregate_rate").value;
+
+        var material_costs = (fuel * fuel_rate) + (cements * cement_rate) + (sands * sand_rate) + (aggregates * aggregate_rate);
+
+        document.getElementById("material_costs").value = material_costs.toFixed(2);
+
+    }
+
+    function labourCostCalculate(){
+        var masons = document.getElementById("masons").value;
+        var mason_rate = document.getElementById("mason_rate").value;
+
+        var workers = document.getElementById("workers").value;
+        var worker_rate = document.getElementById("worker_rate").value;
+
+        var machine_drivers = document.getElementById("machine_drivers").value;
+        var machine_driver_rate = document.getElementById("machine_driver_rate").value;
+
+        var labour_costs = (masons * mason_rate) + (workers * worker_rate) + (machine_drivers * machine_driver_rate);
+
+        document.getElementById("labour_costs").value = labour_costs.toFixed(2);
+    }
 
     </script>
 

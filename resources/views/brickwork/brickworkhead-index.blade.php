@@ -31,7 +31,7 @@
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Masons</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Mason Rate</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Workers</th>
-                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Worker Rate</th>
+                            <th style="font-weight: bold;background:blue;color:white;min-width: 100px;text-align:center;">Salary Rate</th>
 
                             <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Material Costs</th>
                             <th style="font-weight: bold;background:blue;color:white;min-width: 150px;text-align:center;">Labour Costs</th>
@@ -53,26 +53,26 @@
                                 <td class="text-center">{{ $data->height}}</td>
                                 <td class="text-center">{{ $data->qty}}</td>
 
-                                <td class="text-center">{{ $data->bricks}}</td>
-                                <td class="text-center">{{ $data->brick_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->bricks) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->brick_rate) }}</td>
 
-                                <td class="text-center">{{ $data->cements}}</td>
-                                <td class="text-center">{{ $data->cement_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->cements) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->cement_rate) }}</td>
 
-                                <td class="text-center">{{ $data->sands}}</td>
-                                <td class="text-center">{{ $data->sand_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->sands) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->sand_rate) }}</td>
 
-                                <td class="text-center">{{ $data->xmet ?? '-'}}</td>
-                                <td class="text-center">{{ $data->xmet_rate ?? '-'}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->xmet) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->xmet_rate) }}</td>
 
-                                <td class="text-center">{{ $data->masons}}</td>
-                                <td class="text-center">{{ $data->mason_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->masons) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->mason_rate) }}</td>
 
-                                <td class="text-center">{{ $data->workers}}</td>
-                                <td class="text-center">{{ $data->worker_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->workers) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->worker_rate) }}</td>
 
-                                <td class="text-center">{{ $data->material_costs}}</td>
-                                <td class="text-center">{{ $data->labour_costs}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->material_costs) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->labour_costs) }}</td>
 
                                 <td class="text-center">
                                     <div class="d-inline-flex">

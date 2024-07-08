@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BrickworkHead;
+use App\Models\ConcretingworkHead;
 use App\Models\EarthworkHead;
 use App\Models\Site;
 use Illuminate\Http\Request;
@@ -60,12 +62,30 @@ class SiteController extends Controller
     public function show($id){
         $site = Site::find($id);
         $earthwork_heads = EarthworkHead::where('site_id',$id)->get();
-        // dd($earthwork_heads->toArray());
+        $brickwork_heads = BrickworkHead::where('site_id',$id)->get();
+        $concretingwork_heads = ConcretingworkHead::where('site_id',$id)->get();
 
-        $labour_costs = null;
+        $earthwork_labour_costs = null;
+
+        $brickwork_material_costs = null;
+        $brickwork_labour_costs = null;
+
+        $concretingwork_material_costs = null;
+        $concretingwork_labour_costs = null;
 
         foreach($earthwork_heads as $data){
-            $labour_costs += $data->amount;
+            $earthwork_labour_costs += $data->amount;
+        }
+
+
+        foreach($brickwork_heads as $data){
+            $brickwork_material_costs += $data->material_costs;
+            $brickwork_labour_costs += $data->labour_costs;
+        }
+
+        foreach($concretingwork_heads as $data){
+            $concretingwork_material_costs += $data->material_costs;
+            $concretingwork_labour_costs += $data->labour_costs;
         }
         // dd($number_of_workers,$all_salary_rate,$labour_costs);
 
@@ -73,7 +93,15 @@ class SiteController extends Controller
             return view('site.site-show',[
                 'site' => $site,
                 'earthwork_heads' => $earthwork_heads,
-                'labour_costs' => $labour_costs
+                'earthwork_labour_costs' => $earthwork_labour_costs,
+
+                'brickwork_heads' => $brickwork_heads,
+                'brickwork_material_costs' => $brickwork_material_costs,
+                'brickwork_labour_costs' => $brickwork_labour_costs,
+
+                'concretingwork_heads' => $concretingwork_heads,
+                'concretingwork_material_costs' => $concretingwork_material_costs,
+                'concretingwork_labour_costs' => $concretingwork_labour_costs
             ]);
         }
     }

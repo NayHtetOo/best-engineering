@@ -164,7 +164,7 @@
                                                 <div class="col">
                                                     <fieldset class="form-group">
                                                         <label><span class="eng">X-met Rate</span></label>
-                                                        <input type="number" class="form-control mt-1" id="xmet_rate" name="xmet_rate" onchange="materialCostCalculate()" value="{{ old('xmet_rate', $brickwork_heads?->xmet_rate)}}" required>
+                                                        <input type="number" class="form-control mt-1" id="xmet_rate" name="xmet_rate" onchange="materialCostCalculate()" value="{{ old('xmet_rate', $brickwork_heads?->xmet_rate)}}">
                                                     </fieldset>
                                                 </div>
                                             </div>

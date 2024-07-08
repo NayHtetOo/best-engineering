@@ -43,7 +43,7 @@
                                 <td class="text-center">{{ $data->length * $data->width * $data->height * $data->qty}}</td>
                                 <td class="text-center">{{ $data->workers}}</td>
                                 <td class="text-end salary_rate">{{ $data->salary_rate}}</td>
-                                <td class="text-end amount" id="formatted-number">{{ $data->amount}}</td>
+                                <td class="text-end amount">{{ $data->amount}}</td>
 
                                 <td class="text-center">
                                     <div class="d-inline-flex">
@@ -77,9 +77,11 @@
         var originalNumber = parseInt(origin_amounts[i].innerText);
         origin_amounts[i].innerText = formatNumberWithCommas(originalNumber);
     }
+
     for (var i = 0; i < origin_salaries.length; i++) {
         var originalNumber = parseInt(origin_salaries[i].innerText);
         origin_salaries[i].innerText = formatNumberWithCommas(originalNumber);
     }
+
 </script>
 @endsection

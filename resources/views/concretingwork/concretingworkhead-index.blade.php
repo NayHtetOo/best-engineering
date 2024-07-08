@@ -63,28 +63,28 @@
                                 <td class="text-center">{{ $data->height}}</td>
                                 <td class="text-center">{{ $data->qty}}</td>
                                 <td class="text-center">{{ $data->cements}}</td>
-                                <td class="text-center">{{ $data->cement_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->cement_rate) }}</td>
 
                                 <td class="text-center">{{ $data->aggregates}}</td>
-                                <td class="text-center">{{ $data->aggregate_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->aggregate_rate) }}</td>
 
                                 <td class="text-center">{{ $data->sands}}</td>
-                                <td class="text-center">{{ $data->sand_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->sand_rate) }}</td>
 
                                 <td class="text-center">{{ $data->masons}}</td>
-                                <td class="text-center">{{ $data->mason_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->mason_rate) }}</td>
 
                                 <td class="text-center">{{ $data->workers}}</td>
-                                <td class="text-center">{{ $data->worker_rate}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->worker_rate) }}</td>
 
                                 <td class="text-center">{{ $data->fuel ?? '-'}}</td>
-                                <td class="text-center">{{ $data->fuel_rate ?? '-'}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->fuel_rate) }}</td>
 
                                 <td class="text-center">{{ $data->machine_drivers ?? '-'}}</td>
-                                <td class="text-center">{{ $data->machine_driver_rate ?? '-'}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->machine_driver_rate) }}</td>
 
-                                <td class="text-center">{{ $data->material_costs ?? '-'}}</td>
-                                <td class="text-center">{{ $data->labour_costs ?? '-'}}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->material_costs) }}</td>
+                                <td class="text-center">{{ change_to_comma_separated_value($data->labour_costs) }}</td>
 
                                 <td class="text-center">
                                     <a href="{{ route('concretingworkhead.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</a>
