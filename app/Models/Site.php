@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Site extends Model
 {
     use HasFactory;
-    
-    protected $guarded = [];
+
+    // protected $guarded = [];
+
+    protected $fillable = [
+        'name',
+        'address',
+        'address',
+        'attachment',
+        'remark'
+    ];
 
 }

@@ -111,7 +111,7 @@
 
                             <!-- Site -->
                             <li class="nav-item">
-                                <a class="nav-link {{ Request::routeIs('site.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('site.index') }}">
+                                <a class="nav-link {{ Request::routeIs('site.*') || Request::routeIs('additionalcost.*') ? 'active text-white rounded bg-primary' : '' }}" href="{{ route('site.index') }}">
                                     <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
                                     <span class="menu-title">Sites</span>
                                 </a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AdditionalCost;
 use App\Models\BrickworkHead;
 use App\Models\ConcretingworkHead;
 use App\Models\EarthworkHead;
@@ -89,6 +90,8 @@ class SiteController extends Controller
         }
         // dd($number_of_workers,$all_salary_rate,$labour_costs);
 
+        $additional_costs = AdditionalCost::all();
+
         if($site){
             return view('site.site-show',[
                 'site' => $site,
@@ -101,7 +104,9 @@ class SiteController extends Controller
 
                 'concretingwork_heads' => $concretingwork_heads,
                 'concretingwork_material_costs' => $concretingwork_material_costs,
-                'concretingwork_labour_costs' => $concretingwork_labour_costs
+                'concretingwork_labour_costs' => $concretingwork_labour_costs,
+
+                'additional_costs' => $additional_costs
             ]);
         }
     }

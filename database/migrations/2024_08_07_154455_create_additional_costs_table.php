@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sites', function (Blueprint $table) {
+        Schema::create('additional_costs', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
-            $table->text('address')->nullable();
-            $table->text('attachment')->nullable();
-            $table->text('remark')->nullable(); // new added
+            $table->unsignedBigInteger('site_id');
+            $table->string('name')->nullable();
+            $table->double('amount')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sites');
+        Schema::dropIfExists('additional_costs');
     }
 };

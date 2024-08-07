@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdditionalCostController;
 use App\Http\Controllers\BrickworkController;
 use App\Http\Controllers\BrickworkHeadController;
 use App\Http\Controllers\CementConcretingworkController;
@@ -44,7 +45,15 @@ Route::delete('/ratiotype/delete/{id}',[RatioTypeController::class,'delete'])->n
 
 Route::get('/mixedtype',[MixedTypeController::class,'mixedType'])->name('mixedtype.index');
 Route::get('/costtype',[CostTypeController::class,'costType'])->name('costtype.index');
-Route::get('/brickwork',[BrickworkController::class,'brickwork'])->name('brickwork.index');
+
+//Motherboard for brickwork
+Route::get('/brickwork',[BrickworkController::class,'index'])->name('brickwork.index');
+Route::get('/brickwork/create',[BrickworkController::class,'create'])->name('brickwork.create');
+Route::post('/brickwork/store',[BrickworkController::class,'store'])->name('brickwork.store');
+Route::get('/brickwork/edit/{id}',[BrickworkController::class,'edit'])->name('brickwork.edit');
+Route::delete('/brickwork/delete/{id}',[BrickworkController::class,'delete'])->name('brickwork.delete');
+
+
 Route::get('/concretingwork',[ConcretingworkController::class,'concretingWork'])->name('concretingwork.index');
 
 // site
@@ -75,3 +84,7 @@ Route::get('/concretingworkhead/create',[ConcretingworkHeadController::class,'cr
 Route::post('/concretingworkhead/store',[ConcretingworkHeadController::class,'store'])->name('concretingworkhead.store');
 Route::get('/concretingworkhead/edit/{id}',[ConcretingworkHeadController::class,'edit'])->name('concretingworkhead.edit');
 Route::delete('/concretingworkhead/delete/{id}',[ConcretingworkHeadController::class,'delete'])->name('concretingworkhead.delete');
+
+
+Route::get('/additionalcost/add/{site_id}',[AdditionalCostController::class,'add'])->name('additionalcost.add');
+Route::resource('additionalcost', AdditionalCostController::class);

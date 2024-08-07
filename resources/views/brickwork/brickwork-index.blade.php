@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-end">
-                <button class="btn btn-outline-primary px-2 py-1 mb-3">Create Brickwork</button>
+                <a href="{{ route('brickwork.create') }}" class="btn btn-outline-primary px-2 py-1 mb-3">Create Brickwork</a>
             </div>
 
             <div style="overflow-x: auto">
@@ -40,7 +40,7 @@
                                 <td class="text-center">{{ $data->workers}}</td>
                                 <td class="text-center">{{ $data->unit}}</td>
                                 <td class="text-center">
-                                    <button class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</button>
+                                    <a href="{{ route('brickwork.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary" style="min-width: 50px;">Edit</a>
                                     <button class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 50px;">Delete</button>
                                 </td>
                             </tr>

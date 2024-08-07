@@ -13,8 +13,8 @@
                     <form id="myForm" autocomplete="off" class="form-inline" method="POST" action="{{ route('brickworkhead.store')}}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="card-header">
-                            <h4 class="mt-2 text-center text-primary" style="text-transform: uppercase;">{{ __('Brickwork Head Application Form') }}</h4>
+                        <div class="card-header bg-primary">
+                            <h4 class="mt-2 text-center text-white" style="text-transform: uppercase;">{{ __('Brickwork Head Application Form') }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -216,7 +216,7 @@
                                 </div>
 
                                 <div class="row mt-3">
-                                    <div class="col-8"></div>
+                                    <div class="col-7"></div>
 
                                     <div class="col-2 text-end">
                                         <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Material Costs</label>
@@ -224,10 +224,11 @@
                                     <div class="col-2">
                                         <input type="number" class="form-control py-1 text-end" id="material_costs" name="material_costs" value="{{ old('material_costs', $brickwork_heads?->material_costs)}}" readonly required>
                                     </div>
+                                    <div class="col-1 bg-primary text-white text-center py-1">MMK</div>
                                 </div>
 
                                 <div class="row py-2">
-                                    <div class="col-8"></div>
+                                    <div class="col-7"></div>
 
                                     <div class="col-2 text-end">
                                         <label class="py-1 px-2 bg-primary text-white" style="min-width: 110px;">Labour Costs</label>
@@ -235,6 +236,8 @@
                                     <div class="col-2">
                                         <input type="number" class="form-control py-1 text-end" id="labour_costs" name="labour_costs" value="{{ old('labour_costs', $brickwork_heads?->labour_costs)}}" readonly required>
                                     </div>
+                                    <div class="col-1 bg-primary text-white text-center py-1">MMK</div>
+
                                 </div>
 
                                 <div class="row mt-1">

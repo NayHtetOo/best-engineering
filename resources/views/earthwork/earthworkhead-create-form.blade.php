@@ -12,8 +12,8 @@
                     <form id="myForm" autocomplete="off" class="form-inline" method="POST" action="{{ route('earthworkhead.store')}}" enctype="multipart/form-data">
                         @csrf
 
-                        <div class="card-header">
-                            <h4 class="mt-2 text-center text-primary" style="text-transform: uppercase;">{{ __('Earthwork Application Form') }}</h4>
+                        <div class="card-header bg-primary">
+                            <h4 class="mt-2 text-center text-white" style="text-transform: uppercase;">{{ __('Earthwork Application Form') }}</h4>
                         </div>
 
                         <div class="card-body">
@@ -135,8 +135,8 @@
 
                             <div class="row mt-4">
                                 <div class="d-flex justify-content-end mb-2">
-                                    <a id="cancel" href="{{ url()->previous() }}" class="btn btn-outline-secondary button" style="min-width: 80px;margin-right: 10px;">Cancel</a>
-                                    <button class="bg-success btn btn-success button" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
+                                    <a id="cancel" href="{{ url()->previous() }}" class="btn btn-outline-secondary" style="min-width: 80px;margin-right: 10px;">Cancel</a>
+                                    <button class="btn btn-outline-success" name="updateButton" value="{{ $editId }}" type="submit" style="min-width: 80px;">
                                         @isset($earthwork_heads)
                                             Update
                                         @else

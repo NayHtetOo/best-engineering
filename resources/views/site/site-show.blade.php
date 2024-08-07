@@ -261,6 +261,45 @@
                             <br><br>
                             <br><br>
 
+                            <div class="row">
+                                <div style="overflow-x: auto">
+                                    <h5 class="font-bold text-left">Additional Costs</h5>
+                                    <div class="text-end">
+                                        <a href="{{ route('additionalcost.add',$site->id) }}" class="btn btn-outline-primary px-2 py-1 mb-3">Add Additional</a>
+                                    </div>
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th style="font-weight: bold;background: rgb(11, 11, 88);color:white;text-align: center;">No</th>
+                                                <th style="font-weight: bold;background: rgb(11, 11, 88);color:white;min-width: 200px;text-align: left;">Name</th>
+                                                <th style="font-weight: bold;background: rgb(11, 11, 88);color:white;min-width: 350px;text-align:center;">Amount (MMK)</th>
+                                                <th style="font-weight: bold;background: rgb(11, 11, 88);color:white;min-width: 100px;text-align:center;">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($additional_costs as $data)
+                                            <tr>
+                                                <td class="text-center">{{ $loop->index + 1 }}</td>
+                                                <td class="text-center">{{ $data->name}}</td>
+                                                <td class="text-center">{{ $data->amount}}</td>
+                                                <td class="text-center">
+                                                    <div class="d-inline-flex">
+                                                        <a href="{{ route('additionalcost.edit',$data->id)}}" class="btn btn-sm btn-outline-secondary me-2" style="min-width: 55px;">Edit</a>
+                                                        <form action="{{ route('additionalcost.destroy', $data->id) }}" method="post" style="display: inline;">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Are you sure to delete?')" style="min-width: 55px;">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                             <!-- Final Reports Form -->
                             <div class="row">
                                 <div style="overflow-x: auto">
